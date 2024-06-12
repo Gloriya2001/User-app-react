@@ -1,6 +1,31 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 const Login = () => {
+
+const [data,setData] = useState(
+{
+    "userName":"",
+    "password":""
+}
+)
+
+
+
+const inputHandler = (event) => {
+    setData({...data,[event.target.name]:event.target.value})
+}
+
+const readValue = () => {
+ 
+   
+        console.log(data)
+
+
+
+}
+
+
+
     return (
         <div>
 
@@ -36,20 +61,20 @@ const Login = () => {
                                             <div className="col col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
 
                                                 <label htmlFor="" className="form-label">User Name</label>
-                                                <input type="text" className="form-control" />
+                                                <input type="text" className="form-control" name='userName' value={data.userName} onChange={inputHandler}/>
 
                                             </div>
                                             <div className="col col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
 
 
                                                 <label htmlFor="" className="form-label">Password</label>
-                                                <input type="password" name="" id="" className="form-control" />
+                                                <input type="password"  id="" className="form-control" name='password' value={data.password} onChange={inputHandler} />
 
                                             </div>
                                             <div className="col col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
 
 
-                                                <button className=" btn btn-success">login</button>
+                                                <button className=" btn btn-success" onClick={readValue}>login</button>
 
                                             </div>
                                             <div className="col col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
