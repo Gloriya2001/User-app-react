@@ -1,3 +1,4 @@
+import axios from 'axios'
 import React, { useState } from 'react'
 import { useInRouterContext } from 'react-router-dom'
 
@@ -30,8 +31,25 @@ const SignUp = () => {
     const readValue = () => {
 
         console.log(data)
+        axios.post("http://localhost:8080/signup",data).then(
+
+            (response) => {
+ if (response.data.status == "success") {
+    alert("Successfully Added")
+
+ } else {
+    alert("Error")
+ }
+
+            }
+
+
+        ).catch()
+
 
     }
+
+
 
 
 
@@ -43,24 +61,27 @@ const SignUp = () => {
                 <div className="row">
                     <div className="col col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
                         <div className="row g-3">
+
+                            <h1 className='text-center'>Registraion</h1>
+
                             <div className="col col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
 
                                 <label htmlFor="" className="form-label">Name</label>
-                                <input type="text" className="form-control" name='name' value={data.name} onChange={inputHandler}/>
+                                <input type="text" className="form-control" name='name' value={data.name} onChange={inputHandler} />
 
                             </div>
 
                             <div className="col col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
 
                                 <label htmlFor="" className="form-label">Date of birth</label>
-                                <input type="date" className="form-control" name='dob' value={data.dob} onChange={inputHandler}/>
+                                <input type="date" className="form-control" name='dob' value={data.dob} onChange={inputHandler} />
 
                             </div>
 
                             <div className="col col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
 
                                 <label htmlFor="" className="form-label">Blood Group</label>
-                                <select  id="" className="form-control" name='bloodgp' value={data.bloodgp} onChange={inputHandler}>
+                                <select id="" className="form-control" name='bloodgp' value={data.bloodgp} onChange={inputHandler}>
                                     <option value="A+">A+</option>
                                     <option value="B+">B+</option>
                                 </select>
@@ -78,21 +99,21 @@ const SignUp = () => {
                             <div className="col col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
 
                                 <label htmlFor="" className="form-label">Address</label>
-                                <input type="text" className="form-control" name='address' value={data.address} onChange={inputHandler}/>
+                                <input type="text" className="form-control" name='address' value={data.address} onChange={inputHandler} />
 
                             </div>
 
                             <div className="col col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
 
                                 <label htmlFor="" className="form-label">PIN CODE</label>
-                                <input type="text" className="form-control" name='pin' value={data.pin} onChange={inputHandler}/>
+                                <input type="text" className="form-control" name='pin' value={data.pin} onChange={inputHandler} />
 
                             </div>
 
                             <div className="col col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
 
                                 <label htmlFor="" className="form-label">District</label>
-                                <select  id="" className="form-control" name='district' value={data.district} onChange={useInRouterContext} >
+                                <select id="" className="form-control" name='district' value={data.district} onChange={useInRouterContext} >
                                     <option value="Thrissur">Thrissur</option>
                                     <option value="Ernankulam">Ernankulam</option>
                                     <option value="Wayanad">Wayanad</option>
@@ -102,7 +123,7 @@ const SignUp = () => {
                             <div className="col col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
 
                                 <label htmlFor="" className="form-label">place</label>
-                                <input type="text" className="form-control" name='place' value={data.place} onChange={inputHandler}/>
+                                <input type="text" className="form-control" name='place' value={data.place} onChange={inputHandler} />
 
                             </div>
 
@@ -116,14 +137,14 @@ const SignUp = () => {
                             <div className="col col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
 
                                 <label htmlFor="" className="form-label">User Name</label>
-                                <input type="text" className="form-control" name='userName' value={data.userName} onChange={inputHandler}/>
+                                <input type="text" className="form-control" name='userName' value={data.userName} onChange={inputHandler} />
 
                             </div>
 
                             <div className="col col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
 
                                 <label htmlFor="" className="form-label">Password</label>
-                                <input type="Password" className="form-control" name='password' value={data.password} onChange={inputHandler}/>
+                                <input type="Password" className="form-control" name='password' value={data.password} onChange={inputHandler} />
 
                             </div>
 
@@ -138,6 +159,11 @@ const SignUp = () => {
                             <div className="col col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
 
                                 <button className="btn btn-success" onClick={readValue}>Register</button>
+
+                            </div>
+                            <div className="col col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
+
+                            <h5><b> back to <a  href="/"> login</a></b></h5>
 
                             </div>
 

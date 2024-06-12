@@ -79,7 +79,7 @@ const readValue = () => {
                                             </div>
                                             <div className="col col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
 
-                                           <h5><b><a  href="#">Sign up</a></b> here to create new account</h5>
+                                           <h5><b><a  href="/signup">Sign up</a></b> here to create new account</h5>
 
                                             </div>
                                         </div>
